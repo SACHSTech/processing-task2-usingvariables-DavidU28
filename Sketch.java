@@ -7,13 +7,13 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
 	
-	
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
   public void settings() {
 	// put your size call here
-    size(600, 600);
+    size(400, 400);
+    
   }
 
   /** 
@@ -21,42 +21,63 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill, etc.
    */
   public void setup() {
-    background(50, 150, 200);
+    background(255);
+    
   }
 
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  
-	// Grass
-    fill(100, 250 , 50);
-    stroke(0);
-    rect(0, (float) (height/1.2), width, height);
 
-  // Sun
+  // Quadrant 1 (10 x 10 Grid)
+
+    stroke(0);
+    
+    for(int lineX = width/20; lineX < width/2; lineX+= width/20){
+      line(lineX, 0, lineX, height/2);
+    }
+
+    for(int lineY = height/20; lineY < height/2; lineY+= height/20){
+      line(0, lineY, width/2, lineY);
+    }
+
+  // Quadrant 2 (5 x 5 grid of evenly spaced circles)
+       
+    for (int circleY = height/20; circleY <= height/2 - height/20; circleY += height/10) {
+    for (int circleX = width/2 + width/20; circleX <= width; circleX += width/10 ) {
+      ellipse(circleX, circleY, width/20, height/20);
+      fill(128, 128, 128);
+      
+      }
+    }
+
+  // Quadrant 3 is a horizontal grayscale gradient
+    
+   for (int i = 0; i <= width/2; i++) {
+    stroke(i);
+    line(i, height/2, i, height);
+     
+ }
+    
+  // Quadrant 4 is a 8 petal flower that uses a loop to draw the petals evenly spaced around the center of the flower.
+   
+      fill(255, 0, 0);
+    
+    pushMatrix();
+      translate((float)(width * 0.78), (float)(height * 0.6875));
+    
+    for (int i = 0; i <= 8; i++) {
+      rotate (TWO_PI / 8);
+      translate(width/16, 0);
+      ellipse(0, 0, width/16, height/8);
+    }
+     popMatrix(); 
+
     fill(255, 255, 0);
-    stroke(0);
-    ellipse((float) (width/30), (float) (height/20), (float) (width/3), (float) (height/3));
+    ellipse((float) (width * 0.75), (float) (height * 0.76), width/10, height/10);
 
-  // House
-    fill(96, 130, 182);
-    stroke(0);
-    rect((float) (width/4), (float)(height/2), (float) (width/2), (float) (height/3));
-
-    triangle((float) (width/4), (float) (height/2), (float) (width*0.75), (float) (height/2), (float) (width/2), (float) (height/3));
-
-    fill(255, 50, 50);
-    rect((float) (width/2.181818182), (float) (height/1.5), (float)(width/8), (float) (height/6));
-
-    fill(0);
-    ellipse((float) (width*0.55), (float) (height*0.766666666), (float) (width/75), (float) (height/75));
-
-    fill(255);
-    rect((float) (width/3.157894737), (float) (height*0.55), (float) (width/12.5), (float) (height/12.5));
-    fill(0);
-    line((float) (width*0.356666666), (float) (height*0.55), (float) (width*0.356666666), (float) (height*0.63));
-    line((float) (width*0.316666666), (float) (height*0.59), (float) (width*0.396666666), (float) (height*0.59));
+ 
     
   }
   

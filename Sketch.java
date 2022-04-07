@@ -13,7 +13,8 @@ public class Sketch extends PApplet {
    */
   public void settings() {
 	// put your size call here
-    size(600, 600);
+    size(400, 400);
+    
   }
 
   /** 
@@ -22,6 +23,7 @@ public class Sketch extends PApplet {
    */
   public void setup() {
     background(50, 150, 200);
+    
   }
 
   /**
@@ -29,23 +31,22 @@ public class Sketch extends PApplet {
    */
   public void draw() {
 	  
-	// Grass
+	  // Grass
     fill(100, 250 , 50);
     stroke(0);
     rect(0, (float) (height/1.2), width, height);
 
-  // Sun
+    // Sun
     fill(255, 255, 0);
     stroke(0);
     ellipse((float) (width/30), (float) (height/20), (float) (width/3), (float) (height/3));
 
-  // House
+    // House
     fill(96, 130, 182);
     stroke(0);
     rect((float) (width/4), (float)(height/2), (float) (width/2), (float) (height/3));
 
     triangle((float) (width/4), (float) (height/2), (float) (width*0.75), (float) (height/2), (float) (width/2), (float) (height/3));
-
     fill(255, 50, 50);
     rect((float) (width/2.181818182), (float) (height/1.5), (float)(width/8), (float) (height/6));
 
@@ -60,5 +61,4 @@ public class Sketch extends PApplet {
     
   }
   
-  // define other methods down here.
 }
